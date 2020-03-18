@@ -2,12 +2,28 @@
   Layout = "_Layout";
 }
 
+@using BestRestaurants.Models;
 @model BestRestaurants.Models.Restaurant
 
 <h2>Restaurant Details</h2>
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)<h3>
 <h3>@Html.DisplayNameFor(model => model.PriceRange): @Html.DisplayFor(model => model.PriceRange)<h3>
+
+@if (Model.Reviews.Count == 0)
+{
+  <h3>This restaurant has no reviews.</h3>
+}
+@foreach (Review review in Model.Reviews)
+{
+  <div class="well">
+    <h3>@review.Title</h3>
+    <p>@review.Description</p>
+  </div>
+}
+
+
+<p>@Html.ActionLink("Add Review", "Create", "Reviews")</p>
 <p>@Html.ActionLink("Edit Restaurant", "Edit", new { id = Model.RestaurantId })</p>
 <p>@Html.ActionLink("Delete Restaurant", "Delete", new { id = Model.RestaurantId })</p>
 <p>@Html.ActionLink("Back to list", "Index")</p>
