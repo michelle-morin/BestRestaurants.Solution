@@ -28,11 +28,11 @@ namespace BestRestaurants.Controllers
       return View();
     }
 
-    [httpPost]
+    [HttpPost]
     public ActionResult Create(Restaurant restaurant)
     {
       _db.Restaurants.Add(restaurant);
-      __db.SaveChanges();
+      _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
@@ -49,11 +49,11 @@ namespace BestRestaurants.Controllers
       return View(thisRestaurant);
     }
 
-    [httpPost]
+    [HttpPost]
     public ActionResult Edit(Restaurant restaurant)
     {
       _db.Entry(restaurant).State = EntityState.Modified;
-      __db.SaveChanges();
+      _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
