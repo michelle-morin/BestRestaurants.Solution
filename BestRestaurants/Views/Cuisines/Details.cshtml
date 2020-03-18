@@ -17,7 +17,7 @@
 
 @foreach (Restaurant restaurant in @Model.Restaurants)
 {
-  <li>Restaurant: @restaurant.Name</li>
+  <li><a href="/Restaurants/Details/@restaurant.RestaurantId">@restaurant.Name</a></li>
 }
 </ul>
 
