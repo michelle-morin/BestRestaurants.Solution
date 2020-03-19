@@ -19,6 +19,7 @@ namespace BestRestaurants.Controllers
     public ActionResult Index()
     {
       List<Restaurant> model = _db.Restaurants.Include(restaurants => restaurants.Cuisine).ToList();
+      model.Sort((x, y) => string.Compare(x.Name, y.Name));
       return View(model);
     }
 
