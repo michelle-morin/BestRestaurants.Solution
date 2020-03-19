@@ -21,6 +21,15 @@
 }
 </ul>
 
-<p>@Html.ActionLink("Back to cuisines", "Index")</p>
-<p>@Html.ActionLink("Edit Cuisine", "Edit", new { id = Model.CuisineId })</p>
-<p>@Html.ActionLink("Delete Cuisine", "Delete", new { id = Model.CuisineId })</p>
+<div class="fake-button well">
+  <center><p><a href="/Restaurants/Create">Add a restaurant</a></p></center>
+</div>
+<div class="fake-button well">
+  <center><p>@Html.ActionLink("Back to cuisines", "Index")</p></center>
+</div>
+<div class="fake-button well">
+  <center><p>@Html.ActionLink("Edit Cuisine", "Edit", new { id = Model.CuisineId })</p></center>
+</div>
+<div class="fake-button well">
+  <center><p>@Html.ActionLink("Delete Cuisine", "Delete", new { id = Model.CuisineId })</p></center>
+</div>
