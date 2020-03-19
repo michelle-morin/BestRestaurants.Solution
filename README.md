@@ -58,11 +58,11 @@ _Download the MySQL Web Installer [here](https://dev.mysql.com/downloads/file/?i
 * When prompted to Select Products and Features, choose the following: MySQL Server (Will be under MySQL Servers) and MySQL Workbench (Will be under Applications)
 * Select Next, then Execute. Wait for download and installation (can take a few minutes)
 * Advance through Configuration as follows:
-- High Availability set to Standalone.
-- Defaults are OK under Type and Networking.
-- Authentication Method set to Use Legacy Authentication Method.
-- Set password to epicodus. You can use your own if you want but epicodus will be assumed in the lessons.
-- Unselect Configure MySQL Server as a Windows Service.
+  - High Availability set to Standalone.
+  - Defaults are OK under Type and Networking.
+  - Authentication Method set to Use Legacy Authentication Method.
+  - Set password to epicodus. You can use your own if you want but epicodus will be assumed in the lessons.
+  - Unselect Configure MySQL Server as a Windows Service.
 * Complete installation process
 
 _Add the MySQL environment variable to the System PATH. Instructions for Windows 10:_
