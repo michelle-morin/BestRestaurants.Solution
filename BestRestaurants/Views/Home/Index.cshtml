@@ -2,10 +2,12 @@
   Layout = "_Layout";
 }
 
-<h1>Welcome to the Best Restaurants Tracker!</h1>
-<div class="fake-button well">
-  <center><p>@Html.ActionLink("See all cuisines", "Index", "Cuisines")</p></center>
-</div> 
-<div class="fake-button well">
-  <center><p>@Html.ActionLink("See all restaurants", "Index", "Restaurants")</p></center>
+<div class="well">
+  <h1>Welcome to the Best Restaurants Tracker!</h1>
+  <div class="fake-button well">
+    <center><p class="link">@Html.ActionLink("See all cuisines", "Index", "Cuisines")</p></center>
+  </div> 
+  <div class="fake-button well">
+    <center><p class="link">@Html.ActionLink("See all restaurants", "Index", "Restaurants")</p></center>
+  </div>
 </div>
