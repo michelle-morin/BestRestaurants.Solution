@@ -50,11 +50,27 @@ _Enter the following commands in Terminal (macOS) or PowerShell (Windows):_
 _Confirm that you have navigated to the BestRestaurants.Solution directory (e.g., by entering the command_ ``pwd`` _in Terminal)._
 
 _Recreate the ``best_restaurants`` database using the following MySQL commands (in Terminal on macOS or PowerShell on Windows):_
-> ``CREATE DATABASE best_restaurants;``
-> ``USE best_restaurants;``
-> ``CREATE TABLE cuisines (CuisineId serial PRIMARY KEY, Type VARCHAR(255));``
-> ``CREATE TABLE restaurants (RestaurantId serial PRIMARY KEY, Name VARCHAR(255), CuisineId INT, PriceRange VARCHAR(255));``
-> ``CREATE TABLE reviews (ReviewId serial PRIMARY KEY, Title VARCHAR(255), Description VARCHAR(255), RestaurantId INT);``
+> CREATE DATABASE best_restaurants;
+> USE best_restaurants;
+> CREATE TABLE `cuisines` (
+  `CuisineId` int(11) NOT NULL AUTO_INCREMENT,
+  `Type` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`CuisineId`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+> CREATE TABLE `restaurants` (
+  `RestaurantId` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(255) DEFAULT NULL,
+  `PriceRange` varchar(255) DEFAULT NULL,
+  `CuisineId` int(11) DEFAULT '0',
+  PRIMARY KEY (`RestaurantId`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+> CREATE TABLE `reviews` (
+  `ReviewId` int(11) NOT NULL AUTO_INCREMENT,
+  `Title` varchar(255) DEFAULT NULL,
+  `Description` varchar(255) DEFAULT NULL,
+  `RestaurantId` int(11) DEFAULT '0',
+  PRIMARY KEY (`ReviewId`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 _Run this application by entering the following command in Terminal (macOS) or PowerShell (Windows):_
 * ``cd BestRestaurants``
