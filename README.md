@@ -114,6 +114,8 @@ _To view/edit the source code of this application, open the contents of this dir
 
 ## Technologies Used
 * _Git_
+* _HTML_
+* _CSS_
 * _C#_
 * _.NET Core 2.2_
 * _ASP.NET Core MVC (version 2.2)_
