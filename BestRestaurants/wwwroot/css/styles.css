@@ -1,6 +1,16 @@
+html {
+  height: 100%;
+}
+
 body {
   margin: 0 auto;
   max-width: 1200px;
+  height: 100%;
+  background-image: url(https://image.freepik.com/free-photo/wooden-board-empty-table-top-blurred-background_1253-1584.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .render-body {
@@ -8,8 +18,9 @@ body {
 }
 
 .well {
-  background-color: #f5f5f5;
+  background-color: #f5f5f585;
   border: 2px solid #111111;
+  opacity: .9;
 }
 
 .fake-button {
@@ -45,10 +56,63 @@ p.link a {
   font-size: small;
 }
 
-li {
-  font-size: large;
+ul {
+  text-decoration: none;
 }
 
-/* h3.review {
-  font-size: medium;
-} */
+li {
+  font-size: large;
+  margin-left: 38%;
+  text-decoration: none;
+}
+
+li a {
+  color: #111111;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+h4 {
+  margin-left: 38%;
+}
+
+#reviews {
+  height: 400px;
+  overflow-y: auto;
+  border: 2px solid #f5f5f585;
+}
+
+#reviews h3 {
+  text-decoration: underline;
+  margin-top: 0;
+  margin-bottom: 2%;
+}
+
+#review {
+  padding: 2px;
+}
+
+#review h4 {
+  text-decoration: none;
+  margin-left: 0;
+}
+
+#delete {
+  width: 50%;
+  margin-left: 25%;
+  border: 1px solid #111111;
+}
+
+p.delete {
+  margin-left: 40%;
+}
+
+#delete:hover {
+  width: 50%;
+  margin-left: 25%;
+  border: 1px solid #f5f5f5;
+  background-color: #111111;
+  color: #f5f5f5;
+}
