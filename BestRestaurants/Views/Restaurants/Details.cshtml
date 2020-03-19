@@ -6,22 +6,27 @@
 @model BestRestaurants.Models.Restaurant
 
 <div class="well">
-  <h2>Restaurant Details</h2>
+  <h1>Restaurant Details</h2>
   <hr />
-  <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)<h3>
-  <h3>@Html.DisplayNameFor(model => model.PriceRange): @Html.DisplayFor(model => model.PriceRange)<h3>
+  <h4>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)<h3>
+  <h4>Price Range: @Html.DisplayFor(model => model.PriceRange)<h3>
 
   @if (Model.Reviews.Count == 0)
   {
     <h3>This restaurant has no reviews.</h3>
   }
-  @foreach (Review review in Model.Reviews)
-  {
-    <div class="well">
-      <h3 class="review">@review.Title</h3>
-      <p>@review.Description</p>
-    </div>
-  }
+
+  <div class="well" id="reviews">
+    <h3>Reviews</h3>
+    @foreach (Review review in Model.Reviews)
+    {
+      <div class="well" id="review">
+        <h4>@review.Title</h4>
+        <hr />
+        <p>@review.Description</p>
+      </div>
+    }
+  </div>
 
   <div class="fake-button well">
     <center><p class="link">@Html.ActionLink("Add Review", "Create", "Reviews")</p></center>
