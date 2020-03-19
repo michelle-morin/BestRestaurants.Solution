@@ -38,9 +38,17 @@ body {
 }
 
 p {
-  font-size: x-small;
+  font-size: medium;
+}
+
+p.link a {
+  font-size: small;
 }
 
 li {
   font-size: large;
 }
+
+/* h3.review {
+  font-size: medium;
+} */
