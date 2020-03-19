@@ -56,14 +56,10 @@ p.link a {
   font-size: small;
 }
 
-ul {
-  text-decoration: none;
-}
-
 li {
   font-size: large;
   margin-left: 38%;
-  text-decoration: none;
+  list-style-type: none;
 }
 
 li a {
