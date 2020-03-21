@@ -12,7 +12,7 @@ namespace BestRestaurants.Controllers
 
     public CuisinesController(BestRestaurantsContext db)
     {
-      _db =db;
+      _db = db;
     }
 
     public ActionResult Index()
