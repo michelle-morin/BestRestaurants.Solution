@@ -4,20 +4,20 @@
 
 @model BestRestaurants.Models.Review
 
-<div class="well">
-  <h4>Add a new review</h4>
+<h1>SHARE YOUR RESTAURANT REVIEW</h1>
 
-  @using (Html.BeginForm())
-  {
-    @Html.LabelFor(model => model.Title)
-    @Html.TextBoxFor(model => model.Title)
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Title)
+  @Html.TextBoxFor(model => model.Title)
 
-    @Html.LabelFor(model => model.Description)
-    @Html.TextBoxFor(model => model.Description)
+  @Html.LabelFor(model => model.Description)
+  @Html.TextBoxFor(model => model.Description)
 
-    @Html.LabelFor(model => model.Restaurant)
-    @Html.DropDownList("RestaurantId")
+  @Html.LabelFor(model => model.Restaurant)
+  @Html.DropDownList("RestaurantId")
 
-    <input type="submit" value="Add review" class="btn btn-default" />
-  }
-</div>
+  <input type="submit" value="SUBMIT REVIEW" class="btn-block" />
+}
+
+@Html.ActionLink("VIEW ALL RESTAURANTS", "Index", "Restaurants", null, new { @class="btn-block" })

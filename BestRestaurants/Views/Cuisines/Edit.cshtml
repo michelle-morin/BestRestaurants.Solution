@@ -4,21 +4,16 @@
 
 @model BestRestaurants.Models.Cuisine
 
-<div class="well">
-  <h2>Edit</h2>
+<h1>EDIT THIS CUISINE: @Html.DisplayFor(model => model.Type)</h1>
+<hr />
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.CuisineId)
 
-  <h4>Edit this cuisine: @Html.DisplayFor(model => model.Type)</h4>
+  @Html.LabelFor(model => model.Type)
+  @Html.EditorFor(model => model.Type)
 
-  @using (Html.BeginForm())
-  {
-    @Html.HiddenFor(model => model.CuisineId)
+  <input type="submit" class="btn-block" value="SAVE CHANGES" />
+}
 
-    @Html.LabelFor(model => model.Type)
-    @Html.EditorFor(model => model.Type)
-
-    <input type="submit" value="Save" />
-  }
-  <div class="fake-button well">
-    <center><p class="link">@Html.ActionLink("Back to cuisines", "Index")</p></center>
-  </div>
-</div>
+@Html.ActionLink("VIEW ALL CUISINES", "Index", "Cuisines", null, new { @class="btn-block" })

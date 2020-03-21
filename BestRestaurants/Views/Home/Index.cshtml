@@ -1,13 +1,21 @@
-@{
-  Layout = "_Layout";
-}
-
-<div class="well">
-  <h1>Welcome to the Best Restaurants Tracker!</h1>
-  <div class="fake-button well">
-    <center><p class="link">@Html.ActionLink("See all cuisines", "Index", "Cuisines")</p></center>
-  </div> 
-  <div class="fake-button well">
-    <center><p class="link">@Html.ActionLink("See all restaurants", "Index", "Restaurants")</p></center>
-  </div>
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Best Restaurants</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="~/css/home.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="render-body">
+        <h1>RESTAURANT TRACKER</h1>
+        <div class="two-buttons">
+          @Html.ActionLink("VIEW CUISINES", "Index", "Cuisines", null, new { @class="btn" })
+          @Html.ActionLink("VIEW RESTAURANTS", "Index", "Restaurants", null, new { @class="btn" })
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

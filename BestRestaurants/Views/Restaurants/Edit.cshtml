@@ -4,27 +4,22 @@
 
 @model BestRestaurants.Models.Restaurant
 
-<div class="well">
-  <h1>Edit</h1>
+<h1>EDIT DETAILS FOR @Html.DisplayFor(model => model.Name)</h1>
 
-  <h3>Edit this restuarant: @Html.DisplayFor(model => model.Name)</h3>
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.RestaurantId)
 
-  @using (Html.BeginForm())
-  {
-    @Html.HiddenFor(model => model.RestaurantId)
+  @Html.LabelFor(model => model.Name)
+  @Html.EditorFor(model => model.Name)
 
-    @Html.LabelFor(model => model.Name)
-    @Html.EditorFor(model => model.Name)
+  @Html.LabelFor(model => model.PriceRange)
+  @Html.EditorFor(model => model.PriceRange)
 
-    @Html.LabelFor(model => model.PriceRange)
-    @Html.EditorFor(model => model.PriceRange)
+  @Html.LabelFor(model => model.Cuisine)
+  @Html.DropDownList("CuisineId")
 
-    @Html.LabelFor(model => model.Cuisine)
-    @Html.DropDownList("CuisineId")
+  <input type="submit" class="btn-block" value="SAVE CHANGES" />
+}
 
-    <input type="submit" value="Save" />
-  }
-  <div class="fake-button">
-    <center><p class="link">@Html.ActionLink("Back to list", "Index")</p></center>
-  </div>
-</div>
+@Html.ActionLink("VIEW ALL RESTAURANTS", "Index", "Restaurants", null, new { @class="btn-block" })

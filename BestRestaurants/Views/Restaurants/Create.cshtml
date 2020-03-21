@@ -4,26 +4,23 @@
 
 @model BestRestaurants.Models.Restaurant
 
-<div class="well">
-  <h4>Add a new restaurant</h4>
-  @using (Html.BeginForm())
-  {
-    <div class="form-group">
-      @Html.LabelFor(model => model.Name)
-      @Html.TextBoxFor(model => model.Name)
-    </div>
-    <div class="form-group">
-      @Html.LabelFor(model => model.PriceRange)
-      @Html.TextBoxFor(model => model.PriceRange)
-    </div>
-    <div class="form-group">
-      @Html.LabelFor(model => model.Cuisine)
-      @Html.DropDownList("CuisineId")
-    </div>
-
-    <input type="submit" value="Add new restaurant" class="btn btn-block" />
-  }
-  <div class="fake-button well">
-    <center><p class="link">@Html.ActionLink("Show all restaurants", "Index")</p></center>
+<h1>ADD NEW RESTAURANT</h1>
+@using (Html.BeginForm())
+{
+  <div class="form-group">
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
   </div>
-</div>
+  <div class="form-group">
+    @Html.LabelFor(model => model.PriceRange)
+    @Html.TextBoxFor(model => model.PriceRange)
+  </div>
+  <div class="form-group">
+    @Html.LabelFor(model => model.Cuisine)
+    @Html.DropDownList("CuisineId")
+  </div>
+
+  <input type="submit" value="ADD RESTAURANT" class="btn-block" />
+}
+
+@Html.ActionLink("VIEW ALL RESTAURANTS", "Index", "Restaurants", null, new { @class="btn-block" })

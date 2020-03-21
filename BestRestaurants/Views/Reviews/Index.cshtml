@@ -2,12 +2,9 @@
   Layout = "_Layout";
 }
 
-<div class="well">
-  <h1>Thanks for leaving a review!</h1>
-  <div class="fake-button well">
-    <center><p class="link">@Html.ActionLink("Home", "Index", "Home")</p></center>
-  </div>
-  <div class="fake-button well">
-    <center><p class="link">@Html.ActionLink("Add Review", "Create", "Reviews")</p></center>
-  </div>
+<h1>THANK YOU FOR YOUR REVIEW</h1>
+<div class="three-buttons">
+  @Html.ActionLink("REVIEW ANOTHER RESTAURANT", "Create", "Reviews", null, new { @class="btn" })
+  @Html.ActionLink("VIEW ALL RESTAURANTS", "Index", "Restaurants", null, new { @class="btn" })
+  @Html.ActionLink("VIEW ALL CUISINES", "Index", "Cuisines", null, new { @class="btn" })
 </div>

@@ -4,17 +4,15 @@
 
 @model BestRestaurants.Models.Cuisine
 
-<div class="well">
-  <h4>Add a new cuisine</h4>
-  @using (Html.BeginForm())
-  {
-    <div class="form-group">
-      @Html.LabelFor(model => model.Type)
-      @Html.TextBoxFor(model => model.Type)
-    </div>
-    <input type="submit" value="Add new cuisine" />
-  }
-  <div class="fake-button well">
-    <center><p class="link">@Html.ActionLink("Show all cuisines", "Index")</p></center>
+<h1>ADD NEW CUISINE</h1>
+@using (Html.BeginForm())
+{
+  <div class="form-group">
+    @Html.LabelFor(model => model.Type)
+    @Html.TextBoxFor(model => model.Type)
   </div>
-</div>
+  
+  <input type="submit" class="btn-block" value="ADD CUISINE" />
+}
+
+@Html.ActionLink("VIEW ALL CUISINES", "Index", "Cuisines", null, new { @class = "btn-block" })

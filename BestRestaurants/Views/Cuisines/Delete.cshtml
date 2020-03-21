@@ -4,15 +4,11 @@
 
 @model BestRestaurants.Models.Cuisine
 
-<div class="well">
-  <h2>Are you sure you want to delete this cuisine?</h2>
+<h1>DELETE THIS CUISINE?</h1>
+@Html.DisplayNameFor(model => model.Type): @Html.DisplayFor(model => model.Type)
+@using (Html.BeginForm())
+{
+  <input type="submit" class="btn-block" value="YES, DELETE" />
+}
 
-  @Html.DisplayNameFor(model => model.Type): @Html.DisplayFor(model => model.Type)
-  @using (Html.BeginForm())
-  {
-    <input type="submit" value="Delete" />
-  }
-  <div class="fake-button  well">
-    <center><p  class="link">@Html.ActionLink("Back to cuisines", "Index")</p></center>
-  </div>  
-</div>
+@Html.ActionLink("VIEW ALL CUISINES", "Index", "Cuisines", null, new { @class = "btn-block" })

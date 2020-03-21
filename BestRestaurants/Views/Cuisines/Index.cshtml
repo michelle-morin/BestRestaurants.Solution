@@ -5,25 +5,19 @@
 @using BestRestaurants.Models;
 @model List<BestRestaurants.Models.Cuisine>;
 
-<div class="well">
-  <h1>Cuisines</h1>
+<h1>CUISINES</h1>
 
-  @if (@Model.Count == 0)
-  {
-    <h3>No cuisines have been added yet!</h3>
-  } 
+@if (@Model.Count == 0)
+{
+  <h4>no cuisines found</h4>
+} 
 
-  @foreach (Cuisine cuisine in Model)
-  {
-    <li>@Html.ActionLink($"{cuisine.Type}", "Details", new { id = cuisine.CuisineId })</li>
-  }
-  <div class="fake-button well">
-    <center><p class="link">@Html.ActionLink("Add new cuisine", "Create")</p></center>
-  </div>
-  <div class="fake-button well">
-    <center><p class="link"><a href="/Restaurants/Create">Add a restaurant</a></p></center>
-  </div>
-  <div class="fake-button well">
-    <center><p class="link">@Html.ActionLink("Home", "Index", "Home")</p></center>
-  </div>
+@foreach (Cuisine cuisine in Model)
+{
+  <li>@Html.ActionLink($"{cuisine.Type}", "Details", new { id = cuisine.CuisineId })</li>
+}
+
+<div class="two-buttons">
+  @Html.ActionLink("ADD NEW CUISINE", "Create", "Cuisines", null, new { @class="btn" })
+  <a class="btn" href="/Restaurants/Create">ADD RESTAURANT</a>
 </div>

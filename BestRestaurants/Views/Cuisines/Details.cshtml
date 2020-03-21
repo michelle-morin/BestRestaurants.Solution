@@ -5,33 +5,25 @@
 @using BestRestaurants.Models;
 @model BestRestaurants.Models.Cuisine;
 
-<div class="well">
-  <h2>Cuisine Details</h2>
-  <hr />
-  <h3>@Html.DisplayNameFor(model => model.Type): @Html.DisplayFor(model => model.Type)</h3>
+<h1>CUISINE DETAILS</h1>
+<hr />
+<h4>@Html.DisplayNameFor(model => model.Type): @Html.DisplayFor(model => model.Type)</h4>
 
-  <ul>
-  @if (@Model.Restaurants.Count == 0)
-  {
-    <p>no restaurants found</p>
-  }
+<ul>
+@if (@Model.Restaurants.Count == 0)
+{
+  <p>no restaurants found</p>
+}
 
-  @foreach (Restaurant restaurant in @Model.Restaurants)
-  {
-    <li><a href="/Restaurants/Details/@restaurant.RestaurantId">@restaurant.Name</a></li>
-  }
-  </ul>
+@foreach (Restaurant restaurant in @Model.Restaurants)
+{
+  <li><a href="/Restaurants/Details/@restaurant.RestaurantId">@restaurant.Name</a></li>
+}
+</ul>
 
-  <div class="fake-button well">
-    <center><p class="link"><a href="/Restaurants/Create">Add a restaurant</a></p></center>
-  </div>
-  <div class="fake-button well">
-    <center><p class="link">@Html.ActionLink("Back to cuisines", "Index")</p></center>
-  </div>
-  <div class="fake-button well">
-    <center><p class="link">@Html.ActionLink("Edit Cuisine", "Edit", new { id = Model.CuisineId })</p></center>
-  </div>
-  <div class="fake-button well">
-    <center><p class="link">@Html.ActionLink("Delete Cuisine", "Delete", new { id = Model.CuisineId })</p></center>
-  </div>
+<div class="four-buttons">
+  <a class="btn" href="/Restaurants/Create">ADD RESTAURANT</a>
+  @Html.ActionLink("VIEW ALL CUISINES", "Index", "Cuisines", null, new { @class="btn" })
+  @Html.ActionLink("EDIT CUISINE", "Edit", "Cuisines", new { id = Model.CuisineId }, new { @class="btn" })
+  @Html.ActionLink("DELETE CUISINE", "Delete", "Cuisines", new { id = Model.CuisineId }, new { @class="btn" })
 </div>
