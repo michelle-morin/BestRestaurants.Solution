@@ -12,18 +12,15 @@ _This application allows users to keep track of restaurants, assign restaurants 
 
 | Specification | Example Input | Example Output |
 | ------------- |:-------------:| -------------------:|
-| Application creates instance of an Cuisine object | Cuisine newCuisine = new Cuisine(type) | new Cuisine object created |
-| Application creates instance of an Restaurant object | Restaurant newRestaurant = new Restaurant(name, priceRange, cuisineId) | new Restaurant object created |
-| Application creates instance of an Review object | Review newReview = new Review(title, description, restaurantId) | new Review object created |
-| Application saves all new cuisines in database table named cuisines | new cuisine object instantiated | new cuisine object saved as row in database table |
-| If user visits '/' root route, applications displays splash page with link to '/cuisines' and '/restaurants' | user visits '/' route | displays homepage |
-| If user visits '/cuisines' route, applications displays all cuisines in database, each clickable to view all restaurants in the cuisine type | user visits '/cuisines' route | displays list of cuisine types |
-| If user clicks "add new cuisine" link, application redirects to new cuisine form | user clicks "add new cuisine" link | application redirects to new cuisine form |
-| If user visits '/cuisines/new', application shows new cuisine form | user visits '/cuisines/new' | application displays form for adding new cuisine |
-| If user visits submits new cuisine form, application adds new cuisine to database and redirects to '/cuisines' | user submits form | application adds new cuisine to database and redirects to page showing all cuisines in database |
-| If user visits '/cuisines/{id}', application displays all restaurants for that cuisine | user clicks on specific cuisine in list | application redirects to display all restaurants for that cuisine |
-| If user clicks on restaurant name, application redirects to page displaying details for that restaurant | user clicks restaurant name | webpage redirects to page displaying name, price range, and reviews for restaurant |
-| Application allows users to add review for a restaurant | user clicks "add review" | webpage redirects to form for adding review |
+| Application saves all new cuisine objects in a database table named cuisines | user submits new cuisine form | new cuisine object saved as row in cuisines table of best_restaurants database |
+| If user visits '/' root route, the application displays a splash page with a link to '/cuisines' and '/restaurants' | user visits '/' route | displays homepage |
+| If user visits '/cuisines' route, the application displays all cuisine objects stored in the database, each cuisine clickable to view all restaurants associated with the cuisine type | user visits '/cuisines' route | application displays list of cuisines, sorted alphabetically by type |
+| If user clicks "add new cuisine" link, the application redirects to new cuisine form ('/cuisines/create') | user clicks "add new cuisine" link | application redirects to new cuisine form |
+| If user submits new cuisine form, the application adds new cuisine to database and redirects to '/cuisines' | user submits new cuisine form | the application adds new cuisine to database and redirects to a page showing all cuisines in the database |
+| If user visits '/cuisines/{id}', the application displays all restaurants associated with that cuisine | user clicks on specific cuisine in list of cuisines | the application redirects to '/cuisines/{id}' to display all restaurants associated with that cuisine |
+| If user clicks on a restaurant name on the '/cuisines/{id}' page, the application redirects to a page displaying details for that restaurant | user clicks restaurant name | the application redirects to a page displaying the name, price range, and reviews for the restaurant selected |
+| Application allows users to add a review for a restaurant | user clicks "add review" | webpage redirects to form for adding review |
+| If user submits new review form, the application saves the review as a new row in the reviews table and displays the new review on the associated restuarant's details page | user submits new review form | webpage stores new review and associates the review with the specified restaurant |
 
 ## Setup/Installation Requirements
 
@@ -77,7 +74,7 @@ _Add the MySQL environment variable to the System PATH. Instructions for Windows
 _Enter the following commands in Terminal (macOS) or PowerShell (Windows):_
 * ``cd desktop``
 * ``git clone`` followed by the URL to this repository
-* ``cd ToDoList.Solution``
+* ``cd BestRestaurants.Solution``
 
 _Confirm that you have navigated to the BestRestaurants.Solution directory (e.g., by entering the command_ ``pwd`` _in Terminal)._
 
