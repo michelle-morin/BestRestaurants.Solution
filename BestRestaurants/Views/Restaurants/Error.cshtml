@@ -1,0 +1,10 @@
+@{
+  Layout = "_Layout";
+}
+
+<h1>@Model</h1>
+
+<div class="two-buttons">
+  @Html.ActionLink("VIEW CUISINES", "Index", "Cuisines", null, new { @class="btn" })
+  @Html.ActionLink("VIEW RESTAURANTS", "Index", "Restaurants", null, new { @class="btn" })
+</div>
