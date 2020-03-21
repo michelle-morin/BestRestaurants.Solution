@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 
 namespace BestRestaurants.Controllers
 {
@@ -25,16 +26,45 @@ namespace BestRestaurants.Controllers
 
     public ActionResult Create()
     {
-      ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Type");
-      return View();
+      try
+      {
+        List<Cuisine> cuisines = _db.Cuisines.ToList();
+        if (cuisines.Count >= 1)
+        {
+          ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Type");
+          return View();
+        }
+        else
+        {
+          throw new System.InvalidOperationException("No cuisines available. Please add a cuisine before adding a restaurant.");
+        }
+      }
+      catch (Exception ex)
+      {
+        return View("Error", ex.Message);
+      }
     }
 
     [HttpPost]
     public ActionResult Create(Restaurant restaurant)
     {
-      _db.Restaurants.Add(restaurant);
-      _db.SaveChanges();
-      return RedirectToAction("Index");
+      try
+      {
+        if (String.IsNullOrWhiteSpace(restaurant.Name) || String.IsNullOrWhiteSpace(restaurant.PriceRange))
+        {
+          throw new System.InvalidOperationException("invalid input");
+        }
+        else
+        {
+          _db.Restaurants.Add(restaurant);
+          _db.SaveChanges();
+          return RedirectToAction("Index");
+        }
+      }
+      catch (Exception ex)
+      {
+        return View("Error", ex.Message);
+      }
     }
 
     public ActionResult Details(int id)
@@ -46,7 +76,7 @@ namespace BestRestaurants.Controllers
 
     public ActionResult Edit(int id)
     {
-      var thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.RestaurantId == id);
+      Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.RestaurantId == id);
       ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Type");
       return View(thisRestaurant);
     }
@@ -54,21 +84,40 @@ namespace BestRestaurants.Controllers
     [HttpPost]
     public ActionResult Edit(Restaurant restaurant)
     {
-      _db.Entry(restaurant).State = EntityState.Modified;
-      _db.SaveChanges();
-      return RedirectToAction("Index");
+      try
+      {
+        if (String.IsNullOrWhiteSpace(restaurant.Name) || String.IsNullOrWhiteSpace(restaurant.PriceRange))
+        {
+          throw new System.InvalidOperationException("invalid input");
+        }
+        else
+        {
+          _db.Entry(restaurant).State = EntityState.Modified;
+          _db.SaveChanges();
+          return RedirectToAction("Index");
+        }
+      }
+      catch (Exception ex)
+      {
+        return View("Error", ex.Message);
+      }
     }
 
     public ActionResult Delete(int id)
     {
-      var thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.RestaurantId == id);
+      Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.RestaurantId == id);
       return View(thisRestaurant);
     }
 
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      var thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.RestaurantId == id);
+      Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.RestaurantId == id);
+      thisRestaurant.Reviews = _db.Reviews.Where(reviews => reviews.RestaurantId == id).ToList();
+      foreach(Review review in thisRestaurant.Reviews)
+      {
+        _db.Reviews.Remove(review);
+      }
       _db.Restaurants.Remove(thisRestaurant);
       _db.SaveChanges();
       return RedirectToAction("Index");
