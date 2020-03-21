@@ -7,54 +7,30 @@ body {
   margin: 0 auto;
   max-width: 1200px;
   height: 100%;
-  background-image: url(https://image.freepik.com/free-photo/wooden-board-empty-table-top-blurred-background_1253-1584.jpg);
+  background-image: url('/img/food.jpg');
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
 
+#footer {
+  position:fixed;
+  bottom:0px;
+  left:0px;
+  width:100%;
+  background:#4e4f50;
+  color: rgb(177, 237, 255);
+  padding:8px;
+}
+
 .render-body {
-  margin-top: 20%;
-}
-
-.well {
-  background-color: #f5f5f585;
+  margin-top: 15%;
+  margin-bottom: 15%;
+  background-color: #f5f5f5a1;
   border: 2px solid #111111;
-  opacity: .9;
-}
-
-.fake-button {
-  margin-top: 2%;
-  border: 1px solid #111111;
-  background-color: #f5f5f5;
-  padding: 2px;
-  width: 50%;
-  margin-left: 25%;
-}
-
-.fake-button a {
-  color: #111111;
-  font-size: 2em;
-}
-
-.fake-button:hover {
-  background-color: #111111;
-  border: 1px solid #f5f5f5;
-  color: #f5f5f5;
-}
-
-.fake-button:hover a {
-  color: #f5f5f5;
-  text-decoration: none;
-}
-
-p {
-  font-size: medium;
-}
-
-p.link a {
-  font-size: small;
+  border-radius: 25%;
+  padding: 5%;
 }
 
 li {
@@ -67,28 +43,40 @@ li a {
   color: #111111;
 }
 
-h1, h2, h3 {
+h1 {
   text-align: center;
+  font-weight: bolder;
+  color: #f5f5f5;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #111111;
 }
 
 h4 {
-  margin-left: 38%;
+  text-align: center;
 }
 
 #reviews {
   height: 400px;
   overflow-y: auto;
   border: 2px solid #f5f5f585;
+  border-radius: 10px;
 }
 
 #reviews h3 {
   text-decoration: underline;
+  text-align: center;
   margin-top: 0;
   margin-bottom: 2%;
+  font-weight: bolder;
+  color: #f5f5f5;
+  -webkit-text-stroke-width: 0.75px;
+  -webkit-text-stroke-color: #111111;
 }
 
 #review {
   padding: 2px;
+  border: 1px solid #f5f5f585;
+  border-radius: 10px;
 }
 
 #review h4 {
@@ -96,20 +84,49 @@ h4 {
   margin-left: 0;
 }
 
-#delete {
-  width: 50%;
-  margin-left: 25%;
+.btn, .btn-block {
   border: 1px solid #111111;
+  border-radius: 10px;
+  background-color: transparent;
+  color: #111111;
+  text-align: center;
+  margin-top: 2%;
+  padding: 1%;
 }
 
-p.delete {
-  margin-left: 40%;
-}
-
-#delete:hover {
-  width: 50%;
-  margin-left: 25%;
-  border: 1px solid #f5f5f5;
+.btn:hover, .btn-block:hover {
   background-color: #111111;
-  color: #f5f5f5;
+  color: #efebd6;
+  text-decoration: none;
+}
+
+.three-buttons, .two-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.three-buttons a {
+  width: 30%;
+  font-weight: bolder;
+}
+
+.four-buttons {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.two-buttons a, .four-buttons a {
+  width: 45%;
+  font-weight: bolder;
+}
+
+input, textarea, select {
+  border: 1px solid #111111;
+  border-radius: 5px;
+  background-color: transparent;
+  outline: none;
+  box-shadow: none;
+  margin-bottom: 1%;
+  padding: 1%;
 }
